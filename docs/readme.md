@@ -32,3 +32,5 @@
 <br>
 
 #### &copy; Copyright 2025 PT-KER - Minden jog fenntartva.
+
+templat-et ne használj üzeni tanárnő!
