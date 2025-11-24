@@ -944,3 +944,22 @@ input[type="radio"] {
     padding: 15px;
     border-radius: 5px;
 }
+.kapcs{
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.behuzas{
+  text-indent: 120px;
+}
+
+.keret{
+  border: 1px black solid;
+  padding: 0px 5px 5px 5px;
+  margin: 0px 20px 20px 20px;
+}
+
+.szoveg{
+  padding: 15px;
+}
