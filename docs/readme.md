@@ -1,6 +1,6 @@
 # Pótkocsi kölcsönzés - Projektmunka 11.C
 
-<center>Galgóczi Erik és Kalla Dzsínó Alex </center>
+Galgóczi Erik és Kalla Dzsínó Alex
 <br>
 
 #### Projektfelelős - Kalla Dzsínó Alex
