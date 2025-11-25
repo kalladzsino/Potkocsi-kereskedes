@@ -915,7 +915,7 @@ input[type="radio"] {
 }
 
 .margo{
-  padding-left: 25px;
+  padding-left: 10px;
   padding-top: 50px;
   font-size: 25px;
 }
@@ -937,6 +937,7 @@ input[type="radio"] {
 
 .kep{
   border-radius: 15px;
+  width: 95%;
 }
 
 .hatterke{
