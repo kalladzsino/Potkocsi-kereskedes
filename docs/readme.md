@@ -8,18 +8,11 @@
 -----------------
 
 ### Források:
-
 ```
 - Szöveggenerálás: ChatGPT
 - Képek: Ezeket honnan kerested Erik????
-
-
-
-
-
 ```
-
-<br>
+<br></br>
 
 ### Használt programozási nyelvek:
 
