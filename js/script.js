@@ -1,3 +1,6 @@
+// Navbar & Header
+
+
 fetch("navbar.html") 
 .then(response => response.text()) 
 .then(data => {
@@ -15,5 +18,5 @@ if(el){el.innerHTML = data};
 })
 .catch(error => console.error("Hiba a lábléc betöltődésekor!", error));
 
-
+// Kalkulátor - Kölcsönzés oldal
 
