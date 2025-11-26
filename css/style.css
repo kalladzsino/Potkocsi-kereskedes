@@ -969,3 +969,11 @@ input[type="radio"] {
   padding-top: 25px;
   padding-left: 15px;
 }
+
+.szovegm{
+  font-size: 20px;
+}
+
+.kartyah{
+  background-color: rgba(220, 215, 215, 0.579);
+}
