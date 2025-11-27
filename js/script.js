@@ -18,5 +18,8 @@ if(el){el.innerHTML = data};
 })
 .catch(error => console.error("Hiba a lábléc betöltődésekor!", error));
 
-// Kalkulátor - Kölcsönzés oldal
+// Kép behúzás
 
+let allatszallito = document.querySelector("#allatszallito");
+
+allatszallito.style.backgroundImage = "url('./img/allatszallito_kicsi.jfif')";
