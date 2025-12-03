@@ -23,3 +23,4 @@ if(el){el.innerHTML = data};
 let allatszallito = document.querySelector("#allatszallito");
 
 allatszallito.style.backgroundImage = "url('./img/allatszallito_kicsi.jfif')";
+
