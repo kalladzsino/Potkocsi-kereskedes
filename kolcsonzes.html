@@ -19,44 +19,101 @@
     <main class="mt-0 vh-100">
         <div class="container">
             <div class="row">
-                <div class="mb-3">
-                    <h2 class="mb-2">Név:</h2>
-                    <input class="form-control" type="text" aria-label="default input example" placeholder="Kovács Zoltán">
-                </div>
-                <div class="mb-3">
-                    <h2 class="mb-2">Telefonszám:</h2>
-                    <input class="form-control" type="text" aria-label="default input example" placeholder="06-30/822-1334">
-                </div>
-                <div class="mb-3">
-                    <h2 class="mb-2">Bérlés ideje:</h2>
-                    <input class="form-control" type="text" aria-label="default input example" placeholder="2025.01.15">
-                </div>
-                <div class="mb-3">
-                    <h2 class="mb-2">Email:</h2>
-                    <input class="form-control" type="text" aria-label="default input example" placeholder="kovacs.zoltan@gmail.com">
-                </div>
+                <h2 class="my-2">Név:</h2>
+                <input class="form-control m-1" type="text" id="nev" placeholder="Név">
+                <h2 class="my-2">Telefonszám:</h2>
+                <input class="form-control m-1" type="text" id="tel" placeholder="Telefonszám">
+                <h2 class="my-2">Bérlés vége:</h2>
+                <input class="form-control m-1" type="date" id="kido">
+                <h2 class="my-2">Email:</h2>
+                <input class="form-control m-1" type="email" id="email" placeholder="Email">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Pótkocsi típusok
+                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div id="potkocsi">Pótkocsik:</div>
                     </button>
+
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Rácsos Kis Futó</a></li>
-                        <li><a class="dropdown-item" href="#">Rácsos Nagy Futó</a></li>
-                        <li><a class="dropdown-item" href="#">Traktoros Futó</a></li>
-                        <li><a class="dropdown-item" href="#">Motorszállító Futó</a></li>
-                        <li><a class="dropdown-item" href="#">Lapos Futó</a></li>
-                        <li><a class="dropdown-item" href="#">Ponyvás Kis Futó</a></li>
-                        <li><a class="dropdown-item" href="#">Lapos Kis Futó (Quadok szállítására is alkalmas)</a></li>
-                        <li><a class="dropdown-item" href="#">Pótkocsi</a></li>
-                        <li><a class="dropdown-item" href="#">Pótkocsi</a></li>
-                        <li><a class="dropdown-item" href="#">Pótkocsi</a></li>
-                        <li><a class="dropdown-item" href="#">Pótkocsi</a></li>
-                        <li><a class="dropdown-item" href="#">Pótkocsi</a></li>
+                        <li class="w-100 m-1"><a id="f1">Rácsos Kis Futó</a></li>
+                        <li class="w-100 m-1"><a id="f2">Rácsos Nagy Futó</a></li>
+                        <li class="w-100 m-1"><a id="f3">Traktoros Gabona szállító</a></li>
+                        <li class="w-100 m-1"><a id="f4">Motorszállító Futó</a></li>
+                        <li class="w-100 m-1"><a id="f5">Lapos Futó</a></li>
+                        <li class="w-100 m-1"><a id="f6">Ponyvás Kis Futó</a></li>
+                        <li class="w-100 m-1"><a id="f7">Lapos Kis Futó (Quadok szállítására is alkalmas)</a></li>
+                        <li class="w-100 m-1"><a id="f8">Egyedi hosszított futó</a></li>
+                        <li class="w-100 m-1"><a id="f9">Magasított hajó szállító</a></li>
+                        <li class="w-100 m-1"><a id="f10">Traktoros trágyázó</a></li>
+                        <li class="w-100 m-1"><a id="f11">Gally daráló</a></li> 
+                        <li class="w-100 m-1"><a id="f12">Pótkocsi</a></li>
                     </ul>
-                    
                 </div>
-                <a href="" class="btn btn-primary mt-5">Kibérlem</a>
+
+                <p id="arajanlat"></p>
+
+                <button id="kuldes" class="btn btn-dark mt-5" onclick="ellenorzes()">Kibérlem</button>
+                <!-- Miért nem jó ha a script.js-be van?😭
+                tényleg csak akkor mükszik ha itt van html-be-->                
+                <script>
+
+                    let nev = document.getElementById("nev");
+                    let tel = document.getElementById("tel");
+                    let bido = document.getElementById("kido");
+                    let email = document.getElementById("email");
+                    let arajanlat = document.getElementById("arajanlat");
+                    let kuldes = document.getElementById("kuldes");
+
+                    function ellenorzes() {
+
+                        let hibas = false;
+
+
+                        [nev, tel, bido, email].forEach(input => {
+                            input.style.border = "2px solid #ccc";
+                        });
+
+                        // Név ellenőrzés
+                        if (nev.value.trim() === "") {
+                            nev.style.border = "2px solid red";
+                            hibas = true;
+                        }
+
+                        // Telefonszám ellenőrzés (minimum 9 számjegy)
+                        let telSzam = tel.value.replace(/\D/g, "");
+                        if (telSzam.length < 9) {
+                            tel.style.border = "2px solid red";
+                            hibas = true;
+                        }
+
+                        // Időpont ellenőrzés
+                        if (bido.value.trim() === "") {
+                            bido.style.border = "2px solid red";
+                            hibas = true;
+                        }
+
+                        // Email ellenőrzés minta alapján
+                        let emailMinta = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailMinta.test(email.value)) {
+                            email.style.border = "2px solid red";
+                            hibas = true;
+                        }
+
+                        // Eredmény kiírása és gomb állapot
+                        if (hibas) {
+                            arajanlat.innerText = "Rossz adatokat adtál meg, kérlek ellenőrizd az adataid!";
+                            arajanlat.style.color = "red";
+
+                        } else {
+                            arajanlat.innerText = "Köszönjük vásárlását és bizalmát.";
+                            arajanlat.style.color = "green";
+
+
+                            [nev, tel, bido, email].forEach(input => {
+                                input.style.border = "2px solid green";
+                            });
+                        }
+                    }
+                </script>
             </div>
         </div>
     </main>
