@@ -27,40 +27,37 @@
                 <input class="form-control m-1" type="date" id="kido">
                 <h2 class="my-2">Email:</h2>
                 <input class="form-control m-1" type="email" id="email" placeholder="Email">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <div id="potkocsi">Pótkocsik:</div>
+                <div class="dropdown-center">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Centered dropdown
                     </button>
-
                     <ul class="dropdown-menu">
-                        <li class="w-100 m-1"><a id="f1">Rácsos Kis Futó</a></li>
-                        <li class="w-100 m-1"><a id="f2">Rácsos Nagy Futó</a></li>
-                        <li class="w-100 m-1"><a id="f3">Traktoros Gabona szállító</a></li>
-                        <li class="w-100 m-1"><a id="f4">Motorszállító Futó</a></li>
-                        <li class="w-100 m-1"><a id="f5">Lapos Futó</a></li>
-                        <li class="w-100 m-1"><a id="f6">Ponyvás Kis Futó</a></li>
-                        <li class="w-100 m-1"><a id="f7">Lapos Kis Futó (Quadok szállítására is alkalmas)</a></li>
-                        <li class="w-100 m-1"><a id="f8">Egyedi hosszított futó</a></li>
-                        <li class="w-100 m-1"><a id="f9">Magasított hajó szállító</a></li>
-                        <li class="w-100 m-1"><a id="f10">Traktoros trágyázó</a></li>
-                        <li class="w-100 m-1"><a id="f11">Gally daráló</a></li> 
-                        <li class="w-100 m-1"><a id="f12">Pótkocsi</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f1">Rácsos Kis Futó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f2">Rácsos Nagy Futó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f3">Traktoros Gabona szállító</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f4">Motorszállító Futó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f5">Lapos Futó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f6">Ponyvás Kis Futó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f7">Lapos Kis Futó (Quadok szállítására is alkalmas)</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f8">Egyedi hosszított futó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f9">Magasított hajó szállító</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f10">Traktoros trágyázó</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f11">Gally daráló</a></li>
+                        <li class="w-100 m-1"><a onclick="arajanlat()" id="f12">Pótkocsi</a></li>
                     </ul>
                 </div>
-
-                <p id="arajanlat"></p>
+                <p id="kolcsonszoveg"></p>
+                <p id="arajanlatkiir"></p>
 
                 <button id="kuldes" class="btn btn-dark mt-5" onclick="ellenorzes()">Kibérlem</button>
-                <!-- Miért nem jó ha a script.js-be van?😭
-                tényleg csak akkor mükszik ha itt van html-be-->                
                 <script>
 
                     let nev = document.getElementById("nev");
                     let tel = document.getElementById("tel");
                     let bido = document.getElementById("kido");
                     let email = document.getElementById("email");
-                    let arajanlat = document.getElementById("arajanlat");
+                    let kolcsonszoveg = document.getElementById("kolcsonszoveg");
                     let kuldes = document.getElementById("kuldes");
 
                     function ellenorzes() {
@@ -73,7 +70,7 @@
                         });
 
                         // Név ellenőrzés
-                        if (nev.value.trim() === "") {
+                        if (nev.value.length < 4) {
                             nev.style.border = "2px solid red";
                             hibas = true;
                         }
@@ -100,17 +97,28 @@
 
                         // Eredmény kiírása és gomb állapot
                         if (hibas) {
-                            arajanlat.innerText = "Rossz adatokat adtál meg, kérlek ellenőrizd az adataid!";
-                            arajanlat.style.color = "red";
+                            kolcsonszoveg.innerText = "Rossz adatokat adtál meg, kérlek ellenőrizd az adataid!";
+                            kolcsonszoveg.style.color = "red";
 
                         } else {
-                            arajanlat.innerText = "Köszönjük vásárlását és bizalmát.";
-                            arajanlat.style.color = "green";
+                            kolcsonszoveg.innerText = "Köszönjük vásárlását és bizalmát.";
+                            kolcsonszoveg.style.color = "green";
 
 
                             [nev, tel, bido, email].forEach(input => {
                                 input.style.border = "2px solid green";
                             });
+                        }
+                    }
+                    let ido = new Date
+                    let ma = ido.getDay
+                    let honap = ido.getMonth 
+                    let kijeloltido = document.getElementById("kido").value;
+                    let arajanlatkiir = document.querySelector("#arajanlatkiir")
+                    alert(kijeloltido)
+                    function arajanlat() {
+                        if () {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${(ma - kijeloltnap)*5000}`
                         }
                     }
                 </script>

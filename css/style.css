@@ -974,7 +974,8 @@ input[type="radio"] {
 }
 
 .kartyah{
-  background-color: rgba(220, 215, 215, 0.579);
+  background-color: rgb(220, 215, 215);
+
 }
 .openinghours {
     font-family:Lucida Console;
