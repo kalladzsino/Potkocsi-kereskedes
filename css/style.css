@@ -1040,3 +1040,8 @@ input[type="radio"] {
   text-align: center;
   font-size: 25px;
 }
+
+.color-white{
+  color: white;
+  font-size: larger;
+}

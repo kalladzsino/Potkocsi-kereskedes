@@ -27,33 +27,42 @@
                 <input class="form-control m-1" type="text" id="kido" placeholder="1,2,3,...">
                 <h2 class="my-2">Email:</h2>
                 <input class="form-control m-1" type="email" id="email" placeholder="Email">
-                <div class="dropdown-center">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Centered dropdown
-                    </button>
-                    <ul class="dropdown-menu" id="dropdownMenu">
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Rácsos Kis Futó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Rácsos Nagy Futó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Traktoros Gabona szállító</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Motorszállító Futó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Lapos Futó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Ponyvás Kis Futó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Lapos Kis Futó (Quadok szállítására is
-                                alkalmas)</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Egyedi hosszított futó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Magasított hajó szállító</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Traktoros trágyázó</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Gally daráló</button></li>
-                        <li class="w-100 m-1"><button onclick="arajanlat()">Pótkocsi</button></li>
-                    </ul>
-                </div>
+                <select class="bg-dark color-white mt-5" name="dropdown-menu" id="dropdownMenu">
+                    <option value="f1">Rácsos Kis Futó</option>
+                    <option value="f2">Rácsos Nagy Futó</option>
+                    <option value="f3">Traktoros Gabona szállító</option>
+                    <option value="f4">Motorszállító Futó</option>
+                    <option value="f5">Lapos Futó</option>
+                    <option value="f6">Ponyvás Kis Futó</option>
+                    <option value="f7">Lapos Kis Futó (Quadok szállítására is alkalmas)</option>
+                    <option value="f8">Egyedi hosszított futó</option>
+                    <option value="f9">Magasított hajó szállító</option>
+                    <option value="f10">Traktoros trágyázó</option>
+                    <option value="f11">Gally daráló</option>
+                    <option value="f12">Alap Hajoszállító</option>
+                </select>
+                  
                 <p id="kolcsonszoveg"></p>
                 <p id="arajanlatkiir"></p>
 
-                <button id="kuldes" class="btn btn-dark mt-5" onclick="ellenorzes()">Kibérlem</button>
+                <button id="kuldes" class="btn btn-dark mt-5" onclick=" ellenorzes()">Kibérlem</button>
                 <script>
+                    const potkocsik ={
+                        f1: "Rácsos Kis Futó",
+                        f2: "Rácsos Nagy Futó",
+                        f3: "Traktoros Gabona szállító",
+                        f4: "Motorszállító Futó",
+                        f5: "Lapos Futó",
+                        f6: "Ponyvás Kis Futó",
+                        f7: "Lapos Kis Futó (Quadok szállítására is alkalmas)",
+                        f8: "Egyedi hosszított futó",
+                        f9: "Magasított hajó szállító",
+                        f10: "Traktoros trágyázó",
+                        f11: "Gally daráló",
+                        f12: "Alap Hajoszállító"
+                    }
 
+                    let arajanlatkiir = document.getElementById("arajanlatkiir")
                     let nev = document.getElementById("nev");
                     let tel = document.getElementById("tel");
                     let bido = document.getElementById("kido");
@@ -111,15 +120,45 @@
                             });
                         }
                     }
-                    
-                    let napidily = document.querySelectorAll("dropdow.button")
-                    if (napidily ="f1")
-                    bido.value * napidily
 
                     function arajanlat() {
-                        if (document.dropdownMenu.f1) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${(ma - kijeloltnap)*5000}`
+                        if (potkocsik.f1) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*5000}`
                         }
+                        if (potkocsik.f2) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*6000}`
+                        }
+                        if (potkocsik.f3) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*15000}`
+                        }
+                        if (potkocsik.f4) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*4000}`
+                        }
+                        if (potkocsik.f5) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*5000}`
+                        }
+                        if (potkocsik.f6) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*6000}`
+                        }
+                        if (potkocsik.f7) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*6000}`
+                        }
+                        if (potkocsik.f8) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*12000}`
+                        }
+                        if (potkocsik.f9) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*4000}`
+                        }
+                        if (potkocsik.f10) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*10000}`
+                        }
+                        if (potkocsik.f11) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*8000}`
+                        }
+                        if (potkocsik.f12) {
+                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*8000}`
+                        }
+
                     }
 
                 </script>
