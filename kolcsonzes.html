@@ -28,18 +28,18 @@
                 <h2 class="my-2">Email:</h2>
                 <input class="form-control m-1" type="email" id="email" placeholder="Email">
                 <select class="bg-dark color-white mt-5" name="dropdown-menu" id="dropdownMenu">
-                    <option value="f1">Rácsos Kis Futó</option>
-                    <option value="f2">Rácsos Nagy Futó</option>
-                    <option value="f3">Traktoros Gabona szállító</option>
-                    <option value="f4">Motorszállító Futó</option>
-                    <option value="f5">Lapos Futó</option>
-                    <option value="f6">Ponyvás Kis Futó</option>
-                    <option value="f7">Lapos Kis Futó (Quadok szállítására is alkalmas)</option>
-                    <option value="f8">Egyedi hosszított futó</option>
-                    <option value="f9">Magasított hajó szállító</option>
-                    <option value="f10">Traktoros trágyázó</option>
-                    <option value="f11">Gally daráló</option>
-                    <option value="f12">Alap Hajoszállító</option>
+                    <option value="f1"><button onclick="arajanlat1()" > Rácsos Kis Futó</option></button>
+                    <option value="f2"><button onclick="arajanlat2()" > Rácsos Nagy Futó</option></button>
+                    <option value="f3"><button onclick="arajanlat3()" > Traktoros Gabona szállító</option></button>
+                    <option value="f4"><button onclick="arajanlat4()" > Motorszállító Futó</option></button>
+                    <option value="f5"><button onclick="arajanlat5()" > Lapos Futó</option></button>
+                    <option value="f6"><button onclick="arajanlat6()" > Ponyvás Kis Futó</option></button>
+                    <option value="f7"><button onclick="arajanlat7()" > Lapos Kis Futó (Quadok szállítására is alkalmas)</option></button>
+                    <option value="f8"><button onclick="arajanlat8()" > Egyedi hosszított futó</option></button>
+                    <option value="f9"><button onclick="arajanlat9()" > Magasított hajó szállító</option></button>
+                    <option value="f10"><button onclick="arajanlat10()"> Traktoros trágyázó</option></button>
+                    <option value="f11"><button onclick="arajanlat11()"> Gally daráló</option></button>
+                    <option value="f12"><button onclick="arajanlat12()"> Alap Hajoszállító</option></button>
                 </select>
                   
                 <p id="kolcsonszoveg"></p>
@@ -47,20 +47,20 @@
 
                 <button id="kuldes" class="btn btn-dark mt-5" onclick=" ellenorzes()">Kibérlem</button>
                 <script>
-                    const potkocsik = {
-                        f1: "Rácsos Kis Futó",
-                        f2: "Rácsos Nagy Futó",
-                        f3: "Traktoros Gabona szállító",
-                        f4: "Motorszállító Futó",
-                        f5: "Lapos Futó",
-                        f6: "Ponyvás Kis Futó",
-                        f7: "Lapos Kis Futó (Quadok szállítására is alkalmas)",
-                        f8: "Egyedi hosszított futó",
-                        f9: "Magasított hajó szállító",
-                        f10: "Traktoros trágyázó",
-                        f11: "Gally daráló",
-                        f12: "Alap Hajoszállító"
-                    }
+                    const potkocsiAr =  [
+                        5000,
+                        6000,
+                        15000,
+                        4000,
+                        5000,
+                        6000,
+                        6000,
+                        12000,
+                        4000,
+                        10000,
+                        8000,
+                        8000
+                ]
 
                     let arajanlatkiir = document.getElementById("arajanlatkiir")
                     let nev = document.getElementById("nev");
@@ -121,44 +121,41 @@
                         }
                     }
 
-                    function arajanlat() {
-                        if (potkocsik.f1) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*5000}`
-                        }
-                        if (potkocsik.f2) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*6000}`
-                        }
-                        if (potkocsik.f3) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*15000}`
-                        }
-                        if (potkocsik.f4) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*4000}`
-                        }
-                        if (potkocsik.f5) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*5000}`
-                        }
-                        if (potkocsik.f6) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*6000}`
-                        }
-                        if (potkocsik.f7) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*6000}`
-                        }
-                        if (potkocsik.f8) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*12000}`
-                        }
-                        if (potkocsik.f9) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*4000}`
-                        }
-                        if (potkocsik.f10) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*10000}`
-                        }
-                        if (potkocsik.f11) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*8000}`
-                        }
-                        if (potkocsik.f12) {
-                            arajanlatkiir.innerText = `Fizetendő összeg: ${bido*8000}`
-                        }
-
+                    function arajanlat1() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[0]}`
+                    }
+                    function arajanlat2() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[1]}`
+                    }
+                    function arajanlat3() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[2]}`
+                    }
+                    function arajanlat4() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[3]}`
+                    }
+                    function arajanlat5() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[4]}`
+                    }
+                    function arajanlat6() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[5]}`
+                    }
+                    function arajanlat7() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[6]}`
+                    }
+                    function arajanlat8() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[7]}`
+                    }
+                    function arajanlat9() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[8]}`
+                    }
+                    function arajanlat10() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[9]}`
+                    }
+                    function arajanlat11() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[10]}`
+                    }
+                    function arajanlat12() {
+                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[11]}`
                     }
 
                 </script>
