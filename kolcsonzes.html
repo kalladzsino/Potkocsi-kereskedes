@@ -11,161 +11,132 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="">
-    <header id="jsHeader">
-
-    </header>
+<body>
+    <header id="jsHeader"></header>
 
     <main class="mt-0 vh-100">
         <div class="container">
             <div class="row">
+
                 <h2 class="my-2">Név:</h2>
                 <input class="form-control m-1" type="text" id="nev" placeholder="Név">
+
                 <h2 class="my-2">Telefonszám:</h2>
                 <input class="form-control m-1" type="text" id="tel" placeholder="Telefonszám">
+
                 <h2 class="my-2">Bérlések napja:</h2>
-                <input class="form-control m-1" type="text" id="kido" placeholder="1,2,3,...">
+                <input class="form-control m-1" type="number" id="kido" placeholder="1,2,3,...">
+
                 <h2 class="my-2">Email:</h2>
                 <input class="form-control m-1" type="email" id="email" placeholder="Email">
-                <select class="bg-dark color-white mt-5" name="dropdown-menu" id="dropdownMenu">
-                    <option value="f1"><button onclick="arajanlat1()" > Rácsos Kis Futó</option></button>
-                    <option value="f2"><button onclick="arajanlat2()" > Rácsos Nagy Futó</option></button>
-                    <option value="f3"><button onclick="arajanlat3()" > Traktoros Gabona szállító</option></button>
-                    <option value="f4"><button onclick="arajanlat4()" > Motorszállító Futó</option></button>
-                    <option value="f5"><button onclick="arajanlat5()" > Lapos Futó</option></button>
-                    <option value="f6"><button onclick="arajanlat6()" > Ponyvás Kis Futó</option></button>
-                    <option value="f7"><button onclick="arajanlat7()" > Lapos Kis Futó (Quadok szállítására is alkalmas)</option></button>
-                    <option value="f8"><button onclick="arajanlat8()" > Egyedi hosszított futó</option></button>
-                    <option value="f9"><button onclick="arajanlat9()" > Magasított hajó szállító</option></button>
-                    <option value="f10"><button onclick="arajanlat10()"> Traktoros trágyázó</option></button>
-                    <option value="f11"><button onclick="arajanlat11()"> Gally daráló</option></button>
-                    <option value="f12"><button onclick="arajanlat12()"> Alap Hajoszállító</option></button>
+
+                <h2 class="mt-4">Válaszd ki a futót:</h2>
+                <select class="form-select bg-dark text-white" id="dropdownMenu" onchange="arajanlat()">
+                    <option value="0">Rácsos Kis Futó</option>
+                    <option value="1">Rácsos Nagy Futó</option>
+                    <option value="2">Traktoros Gabona szállító</option>
+                    <option value="3">Motorszállító Futó</option>
+                    <option value="4">Lapos Futó</option>
+                    <option value="5">Ponyvás Kis Futó</option>
+                    <option value="6">Lapos Kis Futó</option>
+                    <option value="7">Egyedi hosszított futó</option>
+                    <option value="8">Magasított hajó szállító</option>
+                    <option value="9">Traktoros trágyázó</option>
+                    <option value="10">Gally daráló</option>
+                    <option value="11">Alap Hajoszállító</option>
                 </select>
-                  
-                <p id="kolcsonszoveg"></p>
-                <p id="arajanlatkiir"></p>
 
-                <button id="kuldes" class="btn btn-dark mt-5" onclick=" ellenorzes()">Kibérlem</button>
+                <p id="kolcsonszoveg" class="mt-3"></p>
+                <p id="arajanlatkiir" class="fw-bold fs-4"></p>
+
+                <button id="kuldes" class="btn btn-dark mt-4" onclick="ellenorzes()">Kibérlem</button>
+
                 <script>
-                    const potkocsiAr =  [
-                        5000,
+                    const potkocsiAr = [
+                        5000, 
+                        6000, 
+                        15000, 
+                        4000, 
+                        5000, 
                         6000,
-                        15000,
-                        4000,
-                        5000,
-                        6000,
-                        6000,
-                        12000,
-                        4000,
-                        10000,
-                        8000,
+                        6000, 
+                        12000, 
+                        4000, 
+                        10000, 
+                        8000, 
                         8000
-                ]
+                    ];
 
-                    let arajanlatkiir = document.getElementById("arajanlatkiir")
+                    let arajanlatkiir = document.getElementById("arajanlatkiir");
                     let nev = document.getElementById("nev");
                     let tel = document.getElementById("tel");
                     let bido = document.getElementById("kido");
                     let email = document.getElementById("email");
                     let kolcsonszoveg = document.getElementById("kolcsonszoveg");
-                    let kuldes = document.getElementById("kuldes");
 
+                    // Árajánlat számítása
+                    function arajanlat() {
+                        let i = Number(document.getElementById("dropdownMenu").value);
+                        let nap = Number(bido.value);
+
+                        if (!nap || nap <= 0) {
+                            alert(`Nyomd meg az F5-gombot, először add meg az adataid légyszíves!`)
+                            return;
+                        }
+
+                        let ar = potkocsiAr[i] * nap;
+                        arajanlatkiir.innerHTML = `Árajánlat: <span class="text-success">${ar} Ft</span>`;
+                    }
+
+                    // Ellenőrzés
                     function ellenorzes() {
-
                         let hibas = false;
-
 
                         [nev, tel, bido, email].forEach(input => {
                             input.style.border = "2px solid #ccc";
                         });
 
-                        // Név ellenőrzés
                         if (nev.value.length < 4) {
                             nev.style.border = "2px solid red";
                             hibas = true;
                         }
 
-                        // Telefonszám ellenőrzés (minimum 9 számjegy)
                         let telSzam = tel.value.replace(/\D/g, "");
                         if (telSzam.length < 9) {
                             tel.style.border = "2px solid red";
                             hibas = true;
                         }
 
-                        // Időpont ellenőrzés
-                        if (bido.value.trim() === "") {
+                        if (bido.value.trim() === "" || Number(bido.value) <= 0) {
                             bido.style.border = "2px solid red";
                             hibas = true;
                         }
 
-                        // Email ellenőrzés minta alapján
                         let emailMinta = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                         if (!emailMinta.test(email.value)) {
                             email.style.border = "2px solid red";
                             hibas = true;
                         }
 
-                        // Eredmény kiírása és gomb állapot
                         if (hibas) {
                             kolcsonszoveg.innerText = "Rossz adatokat adtál meg, kérlek ellenőrizd az adataid!";
                             kolcsonszoveg.style.color = "red";
-
                         } else {
                             kolcsonszoveg.innerText = "Köszönjük vásárlását és bizalmát.";
                             kolcsonszoveg.style.color = "green";
-
 
                             [nev, tel, bido, email].forEach(input => {
                                 input.style.border = "2px solid green";
                             });
                         }
                     }
-
-                    function arajanlat1() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[0]}`
-                    }
-                    function arajanlat2() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[1]}`
-                    }
-                    function arajanlat3() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[2]}`
-                    }
-                    function arajanlat4() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[3]}`
-                    }
-                    function arajanlat5() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[4]}`
-                    }
-                    function arajanlat6() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[5]}`
-                    }
-                    function arajanlat7() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[6]}`
-                    }
-                    function arajanlat8() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[7]}`
-                    }
-                    function arajanlat9() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[8]}`
-                    }
-                    function arajanlat10() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[9]}`
-                    }
-                    function arajanlat11() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[10]}`
-                    }
-                    function arajanlat12() {
-                        arajanlatkiir.innerHTML = `${bido.innerText.value*potkocsiAr[11]}`
-                    }
-
                 </script>
             </div>
         </div>
     </main>
 
-    <footer id="jsFooter" class="footer">
+    <footer id="jsFooter" class="footer"></footer>
 
-    </footer>
     <script src="js/script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>

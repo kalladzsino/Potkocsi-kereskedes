@@ -245,27 +245,22 @@ a, a:hover {
   position: relative;
   color: #ffffff;
 
-	&.dark {
-		background-color: #18151f;
-	}
-	&.light {
-		background-color: #e1e5ea;
-	}
-	
-	.t-dark {
-		color: #18151f;
-	}
-	
-  a {
+.postcard.dark {
+    background-color: #18151f;
+}
+.postcard.light {
+    background-color: #e1e5ea;
+}
+.postcard a {
     color: inherit;
-  }
-	
-	h1,	.h1 {
-		margin-bottom: 0.5rem;
-		font-weight: 500;
-		line-height: 1.2;
-	}
-	
+}
+.postcard h1,
+.postcard .h1 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
 	.small {
 		font-size: 80%;
 	}
