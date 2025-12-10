@@ -10,7 +10,7 @@ Galgóczi Erik és Kalla Dzsínó Alex
 ### Források:
 ```
 - Szöveggenerálás: ChatGPT
-- Képek: Ezeket honnan kerested Erik????
+- Képek: unsplash, pixabay, internet(jogtiszta ildalakról)
 ```
 <br></br>
 
